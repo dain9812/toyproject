@@ -37,7 +37,13 @@
           <strong class="asset">440,000원</strong>
           <button class="button-transfer">이체</button>
           <div class="mygoal">
-            <div class="mygoal__progress"></div>
+            <div class="mygoal__progress">
+              <div class="progress-bar">
+                <div class="progress-bar-bg"></div>
+                <div class="progress-bar-value"></div>
+              </div>
+              <button class="progress-btn"></button>
+            </div>
             <p class="mygoal__info">5일 동안 210,000원 남음</p>
           </div>
         </div>
@@ -54,12 +60,12 @@
             <div class="saving-box">
               <strong>여행가자!</strong>
               <span>842,200원</span>
-              <div class="saving-progress-bg"></div>
+              <div class="saving-box-bg"></div>
             </div>
             <div class="saving-box">
               <strong>냉장고사기</strong>
               <span>142,200원</span>
-              <div class="saving-progress-bg"></div>
+              <div class="saving-box-bg full"></div>
             </div>
           </div>
         </div>
@@ -92,6 +98,7 @@
             </ul>
           </div>
         </div>
+        <div class="history-slide"></div>
       </div>
     </section>
   </section>
@@ -121,8 +128,5 @@
   </nav>
 </div>
 
-<script>
-kSlider('.slider', {speed:500});
-</script>
 </body>
 </html>
