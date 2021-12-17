@@ -1,0 +1,247 @@
+/* COMMON */
+body{
+  background-color: #EEECE5;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+img {
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.inner {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* account */
+.account {
+  padding-top: 44px;
+  /* height: calc(100vh - 76px);
+  overflow: hidden; */
+}
+
+/* account__title */
+.account__title {
+  
+}
+.account__title > .inner {
+  height: 43px;
+}
+.account__title .subtit{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.account__title .profile {
+  position: absolute;
+  left: 27px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 43px;
+  height: 43px;
+  border: 1px solid #dccdb6;
+  border-radius: 50%;
+  text-indent: -9999px;
+  background: url('../img/profile.png') no-repeat center / cover;
+}
+.account__title .option {
+  position: absolute;
+  right: 21px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.account__title .option > li {
+  float: left;
+}
+.account__title .option > li + li {
+  margin-left: 18px;
+}
+.account__title .option > li > img {
+  width: 24px;
+}
+
+/* account__status */
+.account__status {
+  padding-top: 33px;
+}
+.account__status .status__total {
+  position: relative;
+  padding: 14px 0 6px;
+  margin: 0 48px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16px rgba(226, 191, 66, 0.19);
+  border-radius: 12px;
+}
+.account__status .status__total .account-number {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.24px;
+  color: #858585;
+}
+.account__status .status__total .mygoal {
+
+}
+.account__status .status__total .mygoal .mygoal__info {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #858585;
+}
+.account__status .status__total .asset {
+  display: block;
+  padding: 16px 0;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #000000;
+}
+.account__status .status__total .button-transfer {
+  position: absolute;
+  top: 14px;
+  right: 17px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.24px;
+}
+.account__status .ad {
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0 21px;
+}
+.account__status .ad > a {
+  text-decoration: underline;
+}
+
+/* account__history */
+.account__history {
+  background: #F5F5F5;
+  box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
+  border-radius: 30px 30px 0px 0px;
+  padding: 30px;
+  overflow: hidden;
+}
+.account__history .history__saving {
+  margin-bottom: 17px;
+  overflow: hidden;
+}
+.account__history .history__saving .saving-box-wrap {
+  width: 200%;
+}
+.account__history .history__saving .saving-box {
+  float: left;
+  width: 162px;
+  height: 47px;
+  background: #DADADA;
+  border-radius: 6px;
+  padding: 5px 13px;
+  position: relative;
+  margin-right: 13px;
+  box-sizing: border-box;
+}
+.account__history .history__saving .saving-box .saving-progress-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 70%;
+  background: #FF5F00;
+  border-radius: 6px 0px 0px 6px;
+}
+.account__history .history__saving .saving-box strong {
+  display: block;
+}
+.account__history .history__saving .saving-box strong,
+.account__history .history__saving .saving-box span {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+.account__history .history__recent {
+  
+}
+.account__history .history__recent .day {
+  margin-bottom: 38px;
+}
+.account__history .history__recent .day .day__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.account__history .history__recent .day .day__info > strong {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+.account__history .history__recent .day .day__info .total-spend {
+  font-size: 14px;
+  line-height: 21px;
+  color: #B4B4B4;
+}
+.account__history .history__recent .day > ul > li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  position: relative;
+  font-size: 18px;
+  line-height: 27px;
+  color: #444444;
+}
+.account__history .history__recent .day > ul > li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #dcdcdc;
+}
+.account__history .history__recent .day > ul > li .price {
+  font-weight: 300;
+}
+.account__history .history__recent .day > ul > li .price.plus {
+  color: #FF5F00;
+}
+
+/* tab-bar */
+.tab-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 76px;
+  background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
+}
+.tab-bar > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.tab-bar > ul > li {
+  width: 25%;
+  text-align: center;
+} 
+.tab-bar > ul > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab-bar ul li a.on {
+}
+.tab-bar ul li a img {
+  max-width: 30px;
+}
