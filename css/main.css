@@ -29,6 +29,7 @@ a {
   padding-top: 44px;
   height: calc(100vh - 76px);
   overflow: hidden;
+  position: relative;
 }
 
 /* account__title */
@@ -168,12 +169,24 @@ a {
 
 /* account__history */
 .account__history {
-  position: relative;
+  position: absolute;
+  top: 353px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: #F5F5F5;
   box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
   border-radius: 30px 30px 0px 0px;
   padding: 30px;
-  overflow: hidden;
+  transition: all .3s;
+  -ms-overflow-style: none; 
+}
+.account__history::-webkit-scrollbar { 
+  display:none; 
+}
+.account__history.on {
+  overflow: scroll;
+  top: 89px;
 }
 .account__history .history__saving {
   margin-bottom: 17px;
@@ -263,7 +276,14 @@ a {
 }
 .account__history .history-slide {
   position: absolute;
-  top: -25px;
+  left: 0;
+  right: 0;
+  top: -30px;
+  height: 30px;
+}
+.account__history .history-slide .slide-btn{
+  position: absolute;
+  top: 7px;
   left: 50%;
   transform: translate(-50%, 0);
   width: 48px;
