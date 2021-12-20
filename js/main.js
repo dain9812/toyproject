@@ -62,7 +62,11 @@ function slideDown(box) {
   box.classList.remove('on');
 }
 
-const swiper = new Swiper('.history__saving', {
+new Swiper('.account-swiper', {
+  loop: true,
+});
+
+new Swiper('.history__saving', {
   slidesPerView: 1.8,
   spaceBetween: 13,
 });

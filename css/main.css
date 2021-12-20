@@ -22,12 +22,13 @@ a {
 .wrap {
   max-width: 450px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 /* account */
 .account {
   padding-top: 44px;
-  height: calc(100vh - 76px);
+  height: calc(100vh - 76px) !important;
   overflow: hidden;
   position: relative;
 }
@@ -196,7 +197,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 162px !important; */
+  width: 162px !important;
   height: 47px;
   background: #DADADA;
   border-radius: 6px;
@@ -290,6 +291,7 @@ a {
 /* tab-bar */
 .tab-bar {
   position: fixed;
+  z-index: 3;
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 0);
