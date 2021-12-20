@@ -192,21 +192,16 @@ a {
   margin-bottom: 17px;
   overflow: hidden;
 }
-.account__history .history__saving .saving-box-wrap {
-  width: 200%;
-}
 .account__history .history__saving .saving-box {
-  float: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 162px;
+  /* width: 162px !important; */
   height: 47px;
   background: #DADADA;
   border-radius: 6px;
   padding: 5px 13px;
   position: relative;
-  margin-right: 13px;
   box-sizing: border-box;
 }
 .account__history .history__saving .saving-box .saving-box-bg {

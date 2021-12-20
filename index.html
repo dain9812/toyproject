@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script defer src="./js/main.js"></script>
   <title>Document</title>
 </head>
@@ -59,16 +61,26 @@
         <div class="history-slide">
           <span class="slide-btn"></span>
         </div>
-        <div class="history__saving slider">
-          <div class="saving-box-wrap">
-            <div class="saving-box">
+        <div class="history__saving">
+          <div class="saving-box-wrap swiper-wrapper">
+            <div class="saving-box swiper-slide">
               <strong>여행가자!</strong>
               <span>842,200원</span>
               <div class="saving-box-bg"></div>
             </div>
-            <div class="saving-box">
+            <div class="saving-box swiper-slide">
               <strong>냉장고사기</strong>
               <span>142,200원</span>
+              <div class="saving-box-bg full"></div>
+            </div>
+            <div class="saving-box swiper-slide">
+              <strong>신발사기</strong>
+              <span>330,000원</span>
+              <div class="saving-box-bg full"></div>
+            </div>
+            <div class="saving-box swiper-slide">
+              <strong>기부실천!</strong>
+              <span>1,000,000원</span>
               <div class="saving-box-bg full"></div>
             </div>
           </div>

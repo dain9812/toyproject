@@ -1,5 +1,6 @@
 'use strict';
 
+// 사용자 기기 체크
 const isMobile = () => { 
   try { 
     document.createEvent("TouchEvent"); 
@@ -60,3 +61,8 @@ function slideUp(box) {
 function slideDown(box) {
   box.classList.remove('on');
 }
+
+const swiper = new Swiper('.history__saving', {
+  slidesPerView: 1.8,
+  spaceBetween: 13,
+});
