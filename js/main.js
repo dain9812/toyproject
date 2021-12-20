@@ -22,17 +22,17 @@ function pcHistorySlide() {
 
   btn.addEventListener("click", () => {
     if(show) {
-      slideDown(box);
+      box.style.top = `89px`;
       show = false;
     } else {
-      slideUp(box);
+      box.style.top = `353px`;
       show = true;
     }
   });
 }
 
 function mobileHistorySlide() {
-  let start_y, end_y;
+  let start_y, move_y, end_y;
   const box = document.querySelector('.account__history');
   const btn = document.querySelector('.history-slide');
 
@@ -40,26 +40,25 @@ function mobileHistorySlide() {
     start : (event) => {
       start_y = event.touches[0].pageY;
     },
+    move : (event) => {
+      move_y = event.changedTouches[0].pageY;
+      if (move_y < 353 && move_y > 89) {
+        box.style.top = `${move_y}px`;
+      }
+    },
     end : (event) => {
       end_y = event.changedTouches[0].pageY;
-      if(start_y > end_y) {
-        slideUp(box);
+      if(start_y - end_y > 20) {
+        box.style.top = `89px`;
       } else {
-        slideDown(box);
+        box.style.top = `353px`;
       }
     }
   };
 
   btn.addEventListener("touchstart", touch.start);
+  btn.addEventListener("touchmove", touch.move);
   btn.addEventListener("touchend", touch.end);
-}
-
-function slideUp(box) {
-  box.classList.add('on');
-}
-
-function slideDown(box) {
-  box.classList.remove('on');
 }
 
 new Swiper('.account-swiper', {
