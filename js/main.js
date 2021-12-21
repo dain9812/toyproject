@@ -15,6 +15,7 @@ if(isMobile()) {
   pcHistorySlide();
 }
 
+// pc버전 입출금 내역 올림 (클릭 방식) 
 function pcHistorySlide() {
   const box = document.querySelector('.account__history');
   const recent = box.querySelector('.history__recent');
@@ -34,6 +35,7 @@ function pcHistorySlide() {
   });
 }
 
+// 모바일버전 입출금 내역 올림 (터치 방칙)
 function mobileHistorySlide() {
   let start_y, move_y, end_y;
   const box = document.querySelector('.account__history');
@@ -67,8 +69,8 @@ function mobileHistorySlide() {
   btn.addEventListener("touchend", touch.end);
 }
 
+// 메인 홈 스와이퍼
 new Swiper('.account-swiper');
-
 new Swiper('.history__saving', {
   spaceBetween: 13,
   breakpoints: {
@@ -80,3 +82,37 @@ new Swiper('.history__saving', {
     }
   }
 });
+
+// json bank 리스트
+fetch('../bank.json')
+  .then(res => res.json())
+  .then(json => getList(json));
+
+function getList(data) {
+  const list = data.bankList;
+  list.reverse();
+  incomeList(list);
+}
+
+// 홈화면 입출금 내역
+function incomeList(data) {
+  let dateList, date, gap, gapResult, dateName;
+  const dt = new Date();
+  const year = dt.getFullYear();
+  const month = dt.getMonth()+1;
+  const day = dt.getDate();
+  const today = new Date(`${year} ${month} ${day}`);
+  data.forEach(e => {
+    dateList = e.date.split('-');
+    date = new Date(dateList[0], dateList[1], dateList[2]);
+    gap = today.getTime() - date.getTime();
+    gapResult = gap / (1000*60*60*24);
+    // if (gapResult === '48') {
+    //   dateName = '오늘';
+    // } else if (gapResult === '49') {
+    //   dateName = '어제';
+    // }
+    console.log(gapResult);
+  });
+  
+}
