@@ -17,15 +17,18 @@ if(isMobile()) {
 
 function pcHistorySlide() {
   const box = document.querySelector('.account__history');
+  const recent = box.querySelector('.history__recent');
   const btn = document.querySelector('.history-slide');
   let show = false;
 
   btn.addEventListener("click", () => {
     if(show) {
       box.style.top = `89px`;
+      recent.classList.add('on');
       show = false;
     } else {
       box.style.top = `353px`;
+      recent.classList.remove('on');
       show = true;
     }
   });
@@ -34,6 +37,7 @@ function pcHistorySlide() {
 function mobileHistorySlide() {
   let start_y, move_y, end_y;
   const box = document.querySelector('.account__history');
+  const recent = box.querySelector('.history__recent');
   const btn = document.querySelector('.history-slide');
 
   const touch = {
@@ -50,8 +54,10 @@ function mobileHistorySlide() {
       end_y = event.changedTouches[0].pageY;
       if(start_y - end_y > 20) {
         box.style.top = `89px`;
+        recent.classList.add('on');
       } else {
         box.style.top = `353px`;
+        recent.classList.remove('on');
       }
     }
   };
