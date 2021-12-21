@@ -322,6 +322,7 @@ a {
   right: 0;
   top: -30px;
   height: 30px;
+  cursor: pointer;
 }
 .account__history .history-slide .slide-btn{
   position: absolute;

@@ -64,6 +64,13 @@ function mobileHistorySlide() {
 new Swiper('.account-swiper');
 
 new Swiper('.history__saving', {
-  slidesPerView: 1.8,
   spaceBetween: 13,
+  breakpoints: {
+    375: {
+      slidesPerView: 1.8,
+    },
+    450: {
+      slidesPerView: 3,
+    }
+  }
 });
