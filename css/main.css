@@ -120,10 +120,19 @@ a {
   left: 65%;
   top: 50%;
   transform: translate(0, -50%);
-  width: 4px;
-  height: 17px;
+  width: 8px;
+  height: 21px;
+  background: #FFFFFF;
+  border-radius: 2px;
+}
+.account__status .status__total .mygoal .mygoal__progress .progress-bar .progress-bar-value::before {
+  position: absolute;
+  content: '';
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
   background: #FF5F00;
-  border: 2px solid #FFFFFF;
   border-radius: 2px;
 }
 .account__status .status__total .mygoal .mygoal__progress .progress-btn {
@@ -131,7 +140,7 @@ a {
   background: url('../img/mygoal.png') no-repeat center / cover;
   width: 14px;
   height: 14px;
-  margin-left: 7px;
+  margin-left: 12px;
 }
 .account__status .status__total .mygoal .mygoal__info {
   font-size: 14px;
@@ -142,11 +151,14 @@ a {
 .account__status .status__total .asset {
   display: block;
   padding: 16px 0;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 36px;
   text-align: center;
   letter-spacing: 2px;
   color: #000000;
+}
+.account__status .status__total .asset span {
+  font-size: 24px;
 }
 .account__status .status__total .button-transfer {
   position: absolute;

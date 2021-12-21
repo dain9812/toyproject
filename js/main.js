@@ -61,9 +61,7 @@ function mobileHistorySlide() {
   btn.addEventListener("touchend", touch.end);
 }
 
-new Swiper('.account-swiper', {
-  loop: true,
-});
+new Swiper('.account-swiper');
 
 new Swiper('.history__saving', {
   slidesPerView: 1.8,
