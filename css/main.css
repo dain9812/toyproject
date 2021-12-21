@@ -239,8 +239,38 @@ a {
   font-size: 12px;
   color: #FFFFFF;
 }
-.account__history .history__recent {
-  
+.account__history .history__saving .add-saving-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  height: 47px;
+  color: #FF5F00;
+}
+.account__history .history__saving .add-saving-box .add-saving-box-icon {
+  width: 22.5px;
+  height: 22.5px;
+  background: #FF5F00;
+  border-radius: 50%;
+  margin-right: 7.5px;
+  position: relative;
+}
+.account__history .history__saving .add-saving-box .add-saving-box-icon::before,
+.account__history .history__saving .add-saving-box .add-saving-box-icon::after {
+  position: absolute;
+  content: '';
+  background: #FFFFFF;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.account__history .history__saving .add-saving-box .add-saving-box-icon::before {
+  width: 13px;
+  height: 1.3px;
+}
+.account__history .history__saving .add-saving-box .add-saving-box-icon::after {
+  width: 1.3px;
+  height: 13px;
 }
 .account__history .history__recent .day {
   margin-bottom: 38px;
