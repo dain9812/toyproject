@@ -24,14 +24,18 @@ a {
   margin: 0 auto;
   overflow: hidden;
 }
-
-/* account */
 .account {
   padding-top: 44px;
   height: calc(100vh - 76px) !important;
   overflow: hidden;
   position: relative;
 }
+.account.theme1 .progress-bar-bg { background: #4C89FF !important; }
+.account.theme1 .saving-box-bg { background: #005F59 !important; }
+.account.theme1 .saving-box-bg.full { background: #55ACEE !important; }
+.account.theme2 .progress-bar-bg { background: #C64CFF !important; }
+.account.theme2 .saving-box-bg { background: #EEBA00 !important; }
+.account.theme2 .saving-box-bg.full { background: #0A73C4 !important; }
 
 /* account__title */
 .account__title {
