@@ -86,33 +86,76 @@ new Swiper('.history__saving', {
 // json bank 리스트
 fetch('../bank.json')
   .then(res => res.json())
-  .then(json => getList(json));
+  .then(json => getBankList(json));
 
-function getList(data) {
+function getBankList(data) {
   const list = data.bankList;
   list.reverse();
-  incomeList(list);
+  getDayList(list);
 }
 
-// 홈화면 입출금 내역
-function incomeList(data) {
-  let dateList, date, gap, gapResult, dateName;
-  const dt = new Date();
-  const year = dt.getFullYear();
-  const month = dt.getMonth()+1;
-  const day = dt.getDate();
-  const today = new Date(`${year} ${month} ${day}`);
-  data.forEach(e => {
-    dateList = e.date.split('-');
-    date = new Date(dateList[0], dateList[1], dateList[2]);
-    gap = today.getTime() - date.getTime();
-    gapResult = gap / (1000*60*60*24);
-    // if (gapResult === '48') {
-    //   dateName = '오늘';
-    // } else if (gapResult === '49') {
-    //   dateName = '어제';
-    // }
-    console.log(gapResult);
-  });
-  
+function groupBy(array, property) {
+  return array.reduce( (acc, obj) => {
+    const key = obj[property];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, {});
 }
+
+
+function getDayList(list) {
+  const dayCount = groupBy(list, 'date');
+  Object.keys(dayCount).forEach( day => {
+    const dayArr = dayCount[day];
+
+    const dayInfo = document.createElement('div');
+    dayInfo.classList.add('day__info');
+    const infoDate = document.createElement('strong');
+    infoDate.textContent = getDayDate(day);
+    dayInfo.appendChild(infoDate);
+    const dayUl = document.createElement('ul');
+
+    let totalPay = 0;
+    for (let i = 0; i < dayArr.length; i++) {
+      const pay = dayArr[i].price;
+      const income = dayArr[i].income;
+      totalPay = (income == 'in') ? totalPay += pay : totalPay -= pay;
+      const price = document.createElement('span');
+      (income == 'in') ? price.classList.add('price', 'plus') : price.classList.add('price');
+      price.textContent = (income == 'in') ? `+ ${pay}` : pay;
+      console.log(pay, income);
+      const dayLi = document.createElement('li');
+      dayLi.textContent = dayArr[i].history;
+      dayLi.appendChild(price);
+      dayUl.appendChild(dayLi);
+    }
+    const totalSpend = document.createElement('span');
+    totalSpend.classList.add('total-spend');
+    totalSpend.textContent = totalPay;
+    dayInfo.appendChild(totalSpend);
+    const dayDiv = document.createElement('div');
+    dayDiv.classList.add('day');
+    dayDiv.appendChild(dayInfo);
+    dayDiv.appendChild(dayUl);
+    const dayWrap = document.querySelector('.history__recent');
+    dayWrap.appendChild(dayDiv);
+  });
+}
+
+function getDayDate(time) {
+  const dt = new Date();
+  const today = new Date(`${dt.getFullYear()} ${dt.getMonth()+1} ${dt.getDate()}`);
+  const dateList = time.split('-');
+  const date = new Date(dateList[0], dateList[1], dateList[2]);
+  const gap = today.getTime() - date.getTime();
+  const gapResult = gap / (1000*60*60*24);
+  const dateName = (gapResult === 51) ? `오늘` :
+    (gapResult === 52) ? `어제` :
+    `${gapResult-51}일전`;
+    
+  return dateName;
+}
+
