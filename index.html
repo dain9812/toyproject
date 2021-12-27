@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <script defer src="./js/main.js"></script>
   <title>Document</title>
 </head>
@@ -71,7 +72,7 @@
                     <div class="progress-bar-bg"></div>
                     <div class="progress-bar-value"></div>
                   </div>
-                  <button class="progress-btn"></button>
+                  <button class="progress-btn" onclick="showPop()"></button>
                 </div>
                 <p class="mygoal__info">5일 동안 210,000원 남음</p>
               </div>
@@ -227,9 +228,30 @@
       </section>
     </div>
   </div>
-  <section class="account__spending">
-          
+</div>
+<div class="popup">
+  <div class="popup-title">
+    <h4>지출 관리</h4> 
+  </div>
+  <section class="popup-contents">
+    <div class="mygoal-progress">
+      <span class="chart-title">기준금액설정</span>
+      <span class="mygoal-amount">2,100,000원</span>
+      <div class="progress-bar">
+        <div class="progress-bar-bg"></div>
+        <div class="progress-bar-value"></div>
+      </div>
+    </div>
+    <div class="daily-report">
+      <span class="chart-title">일간 리포트</span>
+      <canvas id="dailyReport"></canvas>
+    </div>
+    <div class="month-pattern">
+      <span class="chart-title">6월 지출 패턴</span>
+      <canvas id="monthPattern"></canvas>
+    </div>
   </section>
+  <button onclick="showPop()">닫기</button>
 </div>
 
 </body>

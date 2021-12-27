@@ -94,6 +94,7 @@ function getBankList(data) {
   getDayList(list);
 }
 
+// json data -> array 정렬 
 function groupBy(array, property) {
   return array.reduce( (acc, obj) => {
     const key = obj[property];
@@ -105,7 +106,7 @@ function groupBy(array, property) {
   }, {});
 }
 
-
+// 지출 내역 리스트 돔 생성 및 출력
 function getDayList(list) {
   const dayCount = groupBy(list, 'date');
   Object.keys(dayCount).forEach( day => {
@@ -126,15 +127,15 @@ function getDayList(list) {
       const price = document.createElement('span');
       (income == 'in') ? price.classList.add('price', 'plus') : price.classList.add('price');
       price.textContent = (income == 'in') ? `+ ${pay}` : pay;
-      console.log(pay, income);
       const dayLi = document.createElement('li');
       dayLi.textContent = dayArr[i].history;
       dayLi.appendChild(price);
       dayUl.appendChild(dayLi);
     }
+
     const totalSpend = document.createElement('span');
     totalSpend.classList.add('total-spend');
-    totalSpend.textContent = totalPay;
+    totalSpend.textContent = `${totalPay.toLocaleString()}원 지출`;
     dayInfo.appendChild(totalSpend);
     const dayDiv = document.createElement('div');
     dayDiv.classList.add('day');
@@ -145,6 +146,7 @@ function getDayList(list) {
   });
 }
 
+// 날짜 비교 및 일자 계산
 function getDayDate(time) {
   const dt = new Date();
   const today = new Date(`${dt.getFullYear()} ${dt.getMonth()+1} ${dt.getDate()}`);
@@ -159,3 +161,50 @@ function getDayDate(time) {
   return dateName;
 }
 
+// popup 
+function showPop() {
+  const popup = document.querySelector('.popup');
+  const show = popup.classList.contains('show');
+  if ( show == false ) {
+    popup.classList.add('show');
+  } else {
+    popup.classList.remove('show');
+  }
+}
+
+// chart
+const dailyReport = document.querySelector('#dailyReport');
+const monthPattern = document.querySelector('#monthPattern');
+
+const dailReportChart = new Chart (dailyReport, {
+  data: {
+    labels: ['one', 'two', 'three'],
+    datasets: [{
+      type: 'bar',
+      data: [5, 9, 7],
+      backgroundColor: '#38C976',
+      barThickness: 5,
+      borderRadius: 4,
+    }, {
+      type: 'line',
+      data: [4, 7, 9],
+
+    }]
+  }
+});
+const monthPatternChart = new Chart (monthPattern, {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [25, 15, 20, 30, 10],
+      backgroundColor: [
+        '#BD5B00',
+        '#0057BD',
+        '#00BDB2',
+        '#FEC229',
+        '#C4C4C4'
+      ],
+      borderWidth: 0
+    }]
+  },
+});

@@ -38,9 +38,6 @@ a {
 .account.theme2 .saving-box-bg.full { background: #0A73C4 !important; }
 
 /* account__title */
-.account__title {
-  
-}
 .account__title > .inner {
   height: 43px;
 }
@@ -199,8 +196,11 @@ a {
   padding: 30px;
   transition: all .3s;
 }
+.account__history > .inner {
+  position: relative;
+  height: 100%;
+}
 .account__history .history__saving {
-  margin-bottom: 17px;
   overflow: hidden;
 }
 .account__history .history__saving .saving-box {
@@ -271,7 +271,12 @@ a {
   height: 13px;
 }
 .account__history .history__recent {
-  height: 383px;
+  position: absolute;
+  top: 77px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   overflow: scroll;
   -ms-overflow-style: none; 
 }
@@ -367,8 +372,95 @@ a {
   justify-content: center;
   align-items: center;
 }
-.tab-bar ul li a.on {
-}
 .tab-bar ul li a img {
   max-width: 30px;
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  top: 100%;
+  bottom: 0;
+  max-width: 450px;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 5;
+  background: #FFFFFF;
+  transition: all .5s;
+}
+.popup.show {
+  top: 0;
+}
+.popup .popup-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 113px;
+  background: #FFFFFF;
+}
+.popup .popup-title h4 {
+  position: absolute;
+  left: 30px;
+  top: 77px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+}
+.popup .popup-contents {
+  padding: 142px 29px 29px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; 
+}
+.popup .popup-contents::-webkit-scrollbar { 
+  display:none; 
+}
+.popup .popup-contents .chart-title {
+  display: block;
+  padding-bottom: 28px;
+  color: #444444;
+}
+.popup .popup-contents .mygoal-progress {
+  position: relative;
+  padding-bottom: 59px;
+}
+.popup .popup-contents .mygoal-progress .mygoal-amount {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  font-size: 24px;
+  letter-spacing: -0.24px;
+  color: #FF5F00;
+}
+.popup .popup-contents .progress-bar {
+  height: 9px;
+  width: 100%;
+  background: #C4C4C4;
+  border-radius: 3px;
+  position: relative;
+}
+.popup .popup-contents .progress-bar-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #FFDB4C;
+  border-radius: 3px 0px 0px 3px;
+  width: 70%;
+}
+.popup > button {
+  position: absolute;
+  right: 13px;
+  top: 44px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  background: none;
+  border: none;
+}
+#dailyReport {
+  width: 100%;
+  height: 198px;
 }
